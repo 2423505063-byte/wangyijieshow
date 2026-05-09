@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>制造工艺技能 | Robotics Mechanical Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00d4ff;
+            --secondary-color: #7b2cbf;
+            --accent-color: #ff6b35;
+            --dark-bg: #0a0e17;
+            --card-bg: #121a2d;
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --gradient-1: linear-gradient(135deg, #00d4ff 0%, #7b2cbf 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans SC', sans-serif; background-color: var(--dark-bg); color: var(--text-primary); line-height: 1.6; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10, 14, 23, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0, 212, 255, 0.1); padding: 15px 0; }
+        .nav-content { max-width: 1400px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-decoration: none; }
+        .back-btn { display: flex; align-items: center; gap: 8px; color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; transition: all 0.3s ease; }
+        .back-btn:hover { color: var(--primary-color); }
+        .hero-section { min-height: 50vh; display: flex; align-items: center; justify-content: center; position: relative; padding: 120px 20px 60px; overflow: hidden; }
+        .hero-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 50% 30%, rgba(0, 212, 255, 0.15) 0%, transparent 60%); pointer-events: none; }
+        .hero-content { max-width: 1400px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
+        .hero-text h1 { font-family: 'Orbitron', sans-serif; font-size: 3rem; margin-bottom: 20px; }
+        .hero-text h1 span { background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-text .subtitle { font-size: 1.3rem; color: var(--text-secondary); margin-bottom: 30px; }
+        .hero-text .description { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; }
+        .hero-image { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5); }
+        .hero-image img { width: 100%; height: 350px; object-fit: cover; display: block; }
+        .skill-badge { display: inline-block; padding: 8px 20px; background: rgba(0, 212, 255, 0.2); border: 1px solid rgba(0, 212, 255, 0.4); border-radius: 50px; font-size: 0.85rem; color: var(--primary-color); }
+        .content-section { max-width: 1400px; margin: 0 auto; padding: 60px 20px; }
+        .section-title { font-family: 'Orbitron', sans-serif; font-size: 2rem; margin-bottom: 40px; display: flex; align-items: center; gap: 15px; }
+        .section-title::before { content: ''; width: 4px; height: 30px; background: var(--gradient-1); border-radius: 2px; }
+        .details-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        .detail-card { background: var(--card-bg); border-radius: 16px; padding: 30px; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .detail-card h3 { font-size: 1.2rem; margin-bottom: 15px; color: var(--primary-color); }
+        .detail-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
+        .tools-section { margin-top: 40px; }
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .tool-card { background: var(--card-bg); border-radius: 12px; padding: 25px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s ease; }
+        .tool-card:hover { border-color: rgba(0, 212, 255, 0.3); transform: translateY(-5px); }
+        .tool-card .tool-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .tool-card h4 { font-size: 1.1rem; margin-bottom: 8px; }
+        .tool-card span { color: var(--text-secondary); font-size: 0.85rem; }
+        .progress-section { margin-top: 40px; }
+        .progress-item { margin-bottom: 25px; }
+        .progress-item h4 { font-size: 1rem; margin-bottom: 10px; display: flex; justify-content: space-between; }
+        .progress-bar { height: 8px; background: rgba(255, 255, 255, 0.1); border-radius: 4px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--gradient-1); border-radius: 4px; }
+        .gallery-section { margin-top: 60px; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .gallery-item { border-radius: 12px; overflow: hidden; position: relative; aspect-ratio: 4/3; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item .overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 15px; background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); font-size: 0.9rem; }
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        .tech-tag { padding: 6px 14px; background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.2); border-radius: 20px; font-size: 0.8rem; color: var(--primary-color); }
+        @media (max-width: 968px) { .hero-content { grid-template-columns: 1fr; } .hero-text h1 { font-size: 2.2rem; } .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 576px) { .hero-text h1 { font-size: 1.8rem; } .gallery-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="index.html" class="logo">ROBOTICS MECH</a>
+            <a href="index.html#skills" class="back-btn">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                返回技能
+            </a>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="skill-badge">🏭 专业技能</span>
+                <h1>制造<span>工艺</span></h1>
+                <p class="subtitle">Manufacturing Process</p>
+                <p class="description">
+                    熟悉CNC加工、3D打印、钣金加工、注塑等多种制造工艺，
+                    了解DFM(Design for Manufacturing)设计原则，能够从制造角度优化产品设计。
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">CNC加工</span>
+                    <span class="tech-tag">3D打印</span>
+                    <span class="tech-tag">钣金加工</span>
+                    <span class="tech-tag">注塑</span>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/skills/manufacturing.jpg" alt="制造工艺">
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2 class="section-title">技能详情</h2>
+        <div class="details-grid">
+            <div class="detail-card">
+                <h3>CNC加工</h3>
+                <p>熟悉三轴、五轴加工中心操作，能够设计加工工装夹具，优化加工工艺路线，提高加工效率。</p>
+            </div>
+            <div class="detail-card">
+                <h3>3D打印</h3>
+                <p>精通FDM、SLA、SLS等3D打印工艺，能够选择合适的打印材料和工艺参数进行快速原型制作。</p>
+            </div>
+            <div class="detail-card">
+                <h3>钣金加工</h3>
+                <p>熟悉折弯、冲压、激光切割等钣金工艺，能够设计合理的展开图和折弯顺序。</p>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <h2 class="section-title">工艺熟悉度</h2>
+            <div class="progress-item">
+                <h4>CNC加工 <span>90%</span></h4>
+                <div class="progress-bar"><div class="progress-fill" style="width: 90%"></div></div>
+            </div>
+            <div class="progress-item">
+                <h4>3D打印 <span>95%</span></h4>
+                <div class="progress-bar"><div class="progress-fill" style="width: 95%"></div></div>
+            </div>
+            <div class="progress-item">
+                <h4>钣金加工 <span>85%</span></h4>
+                <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
+            </div>
+            <div class="progress-item">
+                <h4>注塑成型 <span>80%</span></h4>
+                <div class="progress-bar"><div class="progress-fill" style="width: 80%"></div></div>
+            </div>
+        </div>
+
+        <div class="tools-section">
+            <h2 class="section-title">加工能力</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">🔩</div>
+                    <h4>CNC三轴/五轴</h4>
+                    <span>精密加工</span>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🖨️</div>
+                    <h4>3D打印</h4>
+                    <span>快速原型</span>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">✂️</div>
+                    <h4>激光切割</h4>
+                    <span>钣金加工</span>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">💉</div>
+                    <h4>注塑成型</h4>
+                    <span>批量生产</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-section">
+            <h2 class="section-title">加工案例</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="images/projects/robot-gripper.jpg" alt="加工案例1"><div class="overlay">样机制作</div></div>
+                <div class="gallery-item"><img src="images/projects/robotic-end-effector.jpg" alt="加工案例2"><div class="overlay">精密零件</div></div>
+                <div class="gallery-item"><img src="images/projects/robotics-lab.jpg" alt="加工案例3"><div class="overlay">装配测试</div></div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

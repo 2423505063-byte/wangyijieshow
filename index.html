@@ -237,6 +237,12 @@
             color: var(--primary-color);
         }
 
+        .portfolio-card a, .skill-card a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
         /* Section Styles */
         section {
             padding: 100px 0;
@@ -636,81 +642,32 @@
             </div>
 
             <div class="portfolio-grid">
-                <!-- Existing Works -->
-                <div class="portfolio-card fade-in">
-                    <img src="9af004e6c8c4fd1e1319f6dfd39600bb.jpg" alt="机械臂设计" class="portfolio-image">
+                <a href="project-arm.html" class="portfolio-card fade-in">
+                    <img src="images/projects/robot-arm-1.jpg" alt="机械臂设计" class="portfolio-image">
                     <div class="portfolio-content">
                         <span class="portfolio-tag">已完成</span>
                         <h3>六轴机械臂设计</h3>
                         <p>基于SolidWorks的三维建模，实现6自由度运动范围，优化的传动结构确保高精度运动控制。</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="portfolio-card fade-in">
-                    <img src="47cecd4423e64192d7156c4ea4db79f5.jpg" alt="机械爪设计" class="portfolio-image">
+                <a href="project-gripper.html" class="portfolio-card fade-in">
+                    <img src="images/projects/robot-gripper.jpg" alt="机械爪设计" class="portfolio-image">
                     <div class="portfolio-content">
                         <span class="portfolio-tag">已完成</span>
                         <h3>自适应机械爪设计</h3>
                         <p>采用气动驱动与柔性材料结合，实现对不同形状物体的自适应抓取，已完成实物制作与测试。</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="portfolio-card fade-in">
-                    <img src="59128ba86bd2e641dd38144408075107.jpg" alt="控制器盒子" class="portfolio-image">
+                <a href="project-controller.html" class="portfolio-card fade-in">
+                    <img src="images/projects/control-box.jpg" alt="控制器盒子" class="portfolio-image">
                     <div class="portfolio-content">
                         <span class="portfolio-tag">已完成</span>
                         <h3>机器人控制器盒子</h3>
                         <p>集成运动控制、电源管理、通信模块的一体化设计，模块化布局便于维护与升级。</p>
                     </div>
-                </div>
-
-                <div class="portfolio-card fade-in">
-                    <img src="9765495276c1375afdc87d4cd4bb6b26.jpg" alt="机械结构建模" class="portfolio-image">
-                    <div class="portfolio-content">
-                        <span class="portfolio-tag">已完成</span>
-                        <h3>精密机械结构建模</h3>
-                        <p>复杂装配体的三维建模与工程图输出，包含详细的零件清单与装配工艺流程。</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-card fade-in">
-                    <img src="b538ec5096304b57d065cee8dda1f948.png" alt="机械设计" class="portfolio-image">
-                    <div class="portfolio-content">
-                        <span class="portfolio-tag">已完成</span>
-                        <h3>工业机器人关节设计</h3>
-                        <p>高精度伺服电机集成设计，优化的减速传动机构，提供稳定可靠的扭矩输出。</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-card fade-in">
-                    <img src="d59ffc723dcf61c3f35eb73fae2bb748.png" alt="机械结构展示" class="portfolio-image">
-                    <div class="portfolio-content">
-                        <span class="portfolio-tag">已完成</span>
-                        <h3>机器人末端执行器</h3>
-                        <p>模块化末端工具设计，支持快速换装，兼容多种作业场景需求。</p>
-                    </div>
-                </div>
-
-                <!-- Future Projects -->
-                <div class="portfolio-card future fade-in">
-                    <span class="future-badge">规划中</span>
-                    <img src="f38375f133a5846b3faf1acb5f22e43a.png" alt="灵巧手" class="portfolio-image">
-                    <div class="portfolio-content">
-                        <span class="portfolio-tag">未来规划</span>
-                        <h3>仿生灵巧手</h3>
-                        <p>拟开发多自由度仿生灵巧手，集成触觉传感器，实现精细化操作与柔顺控制。</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-card future fade-in">
-                    <span class="future-badge">规划中</span>
-                    <img src="https://aka.doubaocdn.com/s/Imr21wNWrY" alt="机器狗" class="portfolio-image" onerror="this.src='https://via.placeholder.com/400x280/1a1f2e/00d4ff?text=Quadruped+Robot+Dog'">
-                    <div class="portfolio-content">
-                        <span class="portfolio-tag">未来规划</span>
-                        <h3>四足机器狗</h3>
-                        <p>规划开发高性能四足机器人平台，具备自主导航、动态平衡与复杂地形适应能力。</p>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -724,23 +681,23 @@
             </div>
 
             <div class="skills-grid">
-                <div class="skill-card fade-in">
+                <a href="skill-modeling.html" class="skill-card fade-in">
                     <div class="skill-icon">📐</div>
                     <h3>三维建模</h3>
                     <p>SolidWorks、Creo、UG等主流CAD软件，熟练进行复杂装配体建模与工程图绘制</p>
-                </div>
+                </a>
 
-                <div class="skill-card fade-in">
+                <a href="skill-simulation.html" class="skill-card fade-in">
                     <div class="skill-icon">🔧</div>
                     <h3>仿真分析</h3>
                     <p>ANSYS、Abaqus结构仿真，ADAMS运动仿真，优化设计方案提升产品性能</p>
-                </div>
+                </a>
 
-                <div class="skill-card fade-in">
+                <a href="skill-manufacturing.html" class="skill-card fade-in">
                     <div class="skill-icon">🏭</div>
                     <h3>制造工艺</h3>
                     <p>熟悉CNC加工、3D打印、钣金加工、注塑等制造工艺，了解DFM设计原则</p>
-                </div>
+                </a>
 
                 <div class="skill-card fade-in">
                     <div class="skill-icon">🤝</div>
